@@ -23,9 +23,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
-          java-version: 21
-          cache: maven
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'maven'
       - name: Build, unit tests and integration tests
         run: |
           cd ${{ matrix.project }}
