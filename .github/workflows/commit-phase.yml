@@ -25,7 +25,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-          cache: 'gradle'
+          cache: 'maven'
       - name: Build, unit tests and integration tests
         run: |
           cd ${{ matrix.project }}
