@@ -4,7 +4,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import com.polarbookshop.catalog_service.dto.BookDto;
+import com.polarbookshop.catalog_service.entity.Book;
 import com.polarbookshop.catalog_service.repository.BookRepository;
 import lombok.AllArgsConstructor;
 
@@ -16,10 +16,18 @@ public class BookDataLoader {
 
     @EventListener(ApplicationReadyEvent.class)
     public void loadBookTestData() {
-        BookDto book1 = new BookDto("1", "title1", "author1", 1D);
+        Book book1 = new Book();
+        book1.setIsbn("1");
+        book1.setTitle("title1");
+        book1.setAuthor("author1");
+        book1.setPrice(1D);
         bookRepository.save(book1);
 
-        BookDto book2 = new BookDto("2", "title2", "author2", 2D);
+        Book book2 = new Book();
+        book2.setIsbn("2");
+        book2.setTitle("title2");
+        book2.setAuthor("author2");
+        book2.setPrice(2D);
         bookRepository.save(book2);
     }
 }
